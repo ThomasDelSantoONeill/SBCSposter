@@ -27,7 +27,7 @@ affiliation:
     address: <i class="fa fa-university"></i> Centre for Environment, Fisheries and Aquaculture Science, Lowestoft (UK).
 main_findings:
   - "Make **better posters** with RMarkdown + **posterdown**."
-logoleft_name: "![](C:/Users/delsa/Documents/Poster/Poster_files/QMlogo.svg)"
+logoleft_name: '![](https://raw.githubusercontent.com/ThomasDelSantoONeill/SBCSposter/blob/main/Poster_files/QMlogo.svg){.main-img-left}'
 output: 
   posterdown::posterdown_betterland:
     self_contained: false
