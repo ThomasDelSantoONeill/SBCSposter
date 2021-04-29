@@ -1,7 +1,8 @@
 ---
 poster_height: "841mm"
 poster_width: "1189mm"
-title: Text
+title_textsize: "90pt"
+title: <tt>nash:</tt> using Game Theory towards sustainable resource exploitation.
 author:
   - name: T.J. Del Santo O'Neill
     affil: 1</br>
@@ -11,13 +12,13 @@ author:
     main: true
   - name: '</br><font size="+4">Supervisors:</font>'
     main: false
-  - name: '</br></br><font size="+4">A.G. Rossberg,</font>'
+  - name: '</br></br><font size="+4">A.G. Rossberg</font>'
     main: false
     affil: 1
-  - name: '<font size="+4">L. Chittka and</font>'
+  - name: '<font size="+4">,&nbsp;L. Chittka</font>'
     main: false
     affil: 1
-  - name: '<font size="+4">R.P. Thorpe.</font>'
+  - name: '<font size="+4">&nbsp;and R.P. Thorpe.</font>'
     main: false
     affil: 2
 affiliation:
@@ -26,28 +27,48 @@ affiliation:
   - num: 2
     address: <i class="fa fa-university"></i> Centre for Environment, Fisheries and Aquaculture Science, Lowestoft (UK).
 main_findings:
-  - "Make **better posters** with RMarkdown + **posterdown**."
-logoleft_name: '![](https://raw.githubusercontent.com/ThomasDelSantoONeill/SBCSposter/blob/main/Poster_files/QMlogo.svg){.main-img-left}'
+  - '<p style="text-align:center">The natural **solution** for optimal **harvesting** of **interacting** fish stocks is the **Nash equilibrium**. Our R package **nash** facilitates its computation for any arbitrary **user**-defined **ecosystem model**.</p>'
+logoleft_name: |
+  <img src="C:/Users/delsa/Documents/SBCSposter/Poster_files/QMlogo.svg" id="Logos">
+main_fontfamily: "Inconsolata"
+main_width: 0.4
+main_textsize: "105pt"
+reference_textsize: "16pt"
 output: 
   posterdown::posterdown_betterland:
     self_contained: false
     pandoc_args: --mathjax
     highlight: haddock
     number_sections: false
-link-citations: true
-primary_colour: "#33CCCC"
-secondary_colour: "#003399"
+link-citations: yes
+primary_colour: "#009999"
+secondary_colour: "#000999"
+bibliography: ppt.bib
+csl: bib.sty
 ---
-
 <style>
-#main-img-left {
+#Logos {
+  top: 2850px;
+  left: 1367.5px;
   position: fixed;
-  bottom: 10;
-  right: 10;
-  width: 50;
+}
+#nashlogo {
+  top: 5px;
+  left: 1500px;
+  position: fixed;
+}
+#Methods {
+  width: 900px;
+  height: 400px;
+}
+p.caption {
+  margin-top: -20pt;
+  margin-bottom: 0;
+}
+p {
+    margin-top:-20px;
 }
 </style>
-
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(results = 'asis',
@@ -57,82 +78,39 @@ knitr::opts_chunk$set(results = 'asis',
                       message = FALSE,
                       fig.align = 'center',
                       out.width = "100%")
-library("pagedown")
 options(knitr.table.format = "html") 
 ```
 
-```{r myplot, include=FALSE}
-svg('myplot.svg')
-plot(iris$Sepal.Length, iris$Sepal.Width)
-dev.off()
+# Motivation
+
+Our research aims to contribute towards the realisation of the 14th Sustainable Development Goal subscribed by the United Nations in the [2030 Agenda for Sustainable Development](https://sdgs.un.org/2030agenda); particularly, on how to sustainably extract marine living resources through fishing [@Duarte2020].
+
+Current management advice is provided on a *species-by-species* (SS) basis relative to the "Maximum Sustainable Yield" (MSY) target [@CFP2013;@Act2020]. Nonetheless, in marine systems species rarely (if at all) occur in isolation [@Menegotto2018], sharing the factors that regulate their growth and (more often than not) feeding upon one another. Within this more realistic *multispecies* (MS) setting, applying SS-MSY based policies carries great risk of stock collapse [@May1979]. 
+
+In our research, we use abstract ecosystem models where trophic interactions are accounted for to obtain optimal harvesting rates for all exploited stocks in such a way that changes in any single rate cannot increase the long-term yield for that stock [@Farcas2016]. This solution is by definition a *Nash Equilibrium* (NE) [@Nash1951] in non-cooperative game theory where rational players maximise their benefits. 
+
+# Under the hood
+
+Here we present `nash`, an `R` package [@R2020] that computes NE harvesting rates ($\mathbf{F}$) for ecological models of the form:
+\begin{equation}
+  \frac{d\mathbf{B}}{dt}=\mathbf{f}(\mathbf{B})\circ \mathbf{B}-\mathbf{F}\circ\mathbf{B}.
+  (\#eq:1)
+\end{equation}
+The user defines an `R` function that contains equation \@ref(eq:1) alongside an integration routine to solve it, taking $\mathbf{F}$ as input and returning long-term yields as output. 
+
+The `nash` function will then approximate equation \@ref(eq:1) near equilibrium dynamics by a multispecies Lotka-Volterra (LV) model, for which the NE can be computed analytically and so a first estimation of optimal $\mathbf{F}$ obtained. Subsequently, an updated LV approximation is calculated near the equilibrium given by this new $\mathbf{F}$. `nash` will then re-compute the NE starting a new iteration until a (user-adjustable) convergence threshold for $\mathbf{F}$ is reached.
+
+# Usage Sample
+
+`nash` implementation was successfully tested for several complex ecosystem models. Here we showcase its application to the North Sea food web where optimal Nash Equilibrium harvesting rates are found:
+
+```{r , out.width='80%'}
+knitr::include_graphics("C:/Users/delsa/Documents/SBCSposter/Results.svg")
 ```
 
-# Introduction
+# Conclusion
 
-This is the `posterdown_betterland` template for the {posterdown} package! I was inspired by the twitter thread of [Mike Morrison](https://mobile.twitter.com/mikemorrison/status/1110191245035479041) and wanted to apply the `#betterposter` concept to the reproducible (yet simple to use) functionality of the {posterdown} package -posterdown]. If you're not an R user don't sweat as you do **NOT** need to use it at all! Feel free to use only the Markdown functionality of this package :)
+Single species modelling was the most parsimonious approach to theoretically guide management in the 20th century. Nonetheless, the amount of anthropogenic stressors natural resources are subjected too at present requires more accurate model formulations. `nash` streamlines the computation of a promising multispecies Maximum Sustainable Yield objective for holistic ecosystem models.
 
-```{r, include=FALSE}
-knitr::write_bib(c('posterdown', 'rmarkdown','pagedown'), 'packages.bib')
-```
-
-## Objectives
-
-1. Pick a template layout.
-2. Write/ create your poster content distraction free.
-3. Let posterdown do its thing!
-
-# Methods
-
-I will show here how to include poster elements that may be useful, such as an equation using mathjax:
-
-$$
-E = mc^2
-$$
-
-To reference a citation you can add your `.bib` file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the `.bib` file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd `-pagedown]` [-pagedown].
-
-To get a better understanding of how to include features like these please refer to the {posterdown} [wiki](https://github.com/posterdown/wiki).
-
-**_Now on to the results!_**
-
-<br>
-
-# Results
-
-Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, `Figure \f(fig:irisfigure)`, Figure ref(fig:irisfigure).
-
-```{r, irisfigure, fig.cap='Here is a caption for the figure. This can be added by using the "fig.cap" option in the r code chunk options, see this [link](https://yihui.name/knitr/options/#plots) from the legend himself, [Yihui Xie](https://twitter.com/xieyihui).', out.width="80%"}
-par(mar=c(2,2,0,1))
-plot(x = iris$Sepal.Length, y = iris$Sepal.Width,
-     col = iris$Species, pch = 19, xlab = "Sepal Length",
-     ylab = "Sepal Width")
-```
-
-Maybe you want to show off some of that fancy code you spent so much time on to make that figure, well you can do that too! Just use the `echo=TRUE` option in the r code chunk options, Figure ref(fig:myprettycode)!
-
-```{r myprettycode, echo=FALSE,collapse=TRUE, fig.cap='Boxplots, so hot right now!', fig.height=3.5, out.width="80%"}
-#trim whitespace
-par(mar=c(2,2,0,0))
-#plot boxplots
-boxplot(iris$Sepal.Width~iris$Species,
-        col = "#008080", 
-        border = "#0b4545",
-        ylab = "Sepal Width (cm)",
-        xlab = "Species")
-```
-
-How about a neat table of data? See, Table \@ref(tab:iristable):
-
-```{r, iristable}
-knitr::kable(
-  iris[1:8,1:5], format = "html",
-  caption = "A table made with the **knitr::kable** function.",
-  align = "c", col.names = c("Sepal <br> Length",
-                             "Sepal <br> Width",
-                             "Petal <br> Length",
-                             "Petal <br> Width",
-                             "Species"),
-  escape = FALSE)
-```
 
 # References

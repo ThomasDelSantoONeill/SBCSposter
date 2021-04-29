@@ -8,7 +8,7 @@
 
 
 
-<title>Text</title>
+<title>nash: using Game Theory towards sustainable resource exploitation.</title>
 
 <script src="Poster_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
@@ -25,7 +25,7 @@ Font-awesome icons ie github or twitter
 <!--
 Google fonts api stuff
 -->
-<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
 
 <!--
@@ -63,7 +63,7 @@ width: 100%;
 }
 pre.sourceCode.r, pre.sourceCode.python {
 background-color: #ffffff20;
-border: solid #003399 1mm;
+border: solid #000999 1mm;
 border-radius: 0.5em;
 padding: 4mm;
 margin: auto;
@@ -85,8 +85,8 @@ border-radius: 2mm;
 code {
 font-size: 25pt;
 font-family: monospace;
-background-color: #00339924;
-color: #003399;
+background-color: #00099924;
+color: #000999;
 padding: 1.2mm;
 line-height: 1;
 border-radius: 2mm;
@@ -98,7 +98,7 @@ font-style: italic;
 }
 
 tbody tr:nth-child(odd) {
-    background-color: #33CCCC20;
+    background-color: #00999920;
 }
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
   border-spacing: 0;
@@ -123,7 +123,7 @@ font-style: italic;
 padding-top: 0;
 }
 .references {
-font-size: 20px;
+font-size: 16pt;
 line-height: 90%;
 }
 /* Create three unequal columns that floats next to each other */
@@ -140,37 +140,37 @@ column-count: 2;
 -webkit-column-fill: auto;
 -moz-column-fill: auto;
 column-fill: auto;
--webkit-column-rule-width: 0.5;
--moz-column-rule-width: 0.5;
-column-rule-width: 0.5;
+-webkit-column-rule-width: 0.4;
+-moz-column-rule-width: 0.4;
+column-rule-width: 0.4;
 -webkit-column-rule-style: solid;
 -moz-column-rule-style: solid;
 column-rule-style: solid;
 -webkit-column-rule-color: black;
 -moz-column-rule-color: black;
 column-rule-color: black;
--webkit-column-gap: 50%;
+-webkit-column-gap: calc(0.4 * 100%);
 background-color: #ffffff;
 font-family: Rasa;
 color: #000000;
 }
 span.citation {
-  color: #003399;
+  color: #000999;
   font-weight: bold;
 }
 a {
 text-decoration: none;
-color: #003399;
+color: #000999;
 }
 #title {
-font-size: 125pt;
+font-size: 90pt;
 text-align: left;
 margin: 0;
 line-height: 90%;
 border-bottom: 0;
 }
 #author {
-color: #33CCCC;
+color: #009999;
 margin: 0;
 text-align: left;
 line-height: 65%;
@@ -193,7 +193,7 @@ font-size: 20px;
 font-size: 30px;
 }
 .author_extra {
-color: #003399;
+color: #000999;
 margin: 0;
 line-height: 85%;
 font-size: 35px;
@@ -213,14 +213,14 @@ color: #000000;
 text-align: left;
 }
 .main {
-width: calc(1189mm * 0.5);
+width: calc(1189mm * 0.4);
 height: 841mm;
 position: absolute;
-margin-left: calc(1189mm * 0.25);
-background-color: #33CCCC;
+margin-left: calc(1189mm * ((1 - 0.4) / 2));
+background-color: #009999;
 color: #FFFFFF90;
-font-family: Special Elite;
-background-image: linear-gradient(#33CCCC 50%, #003399);
+font-family: Inconsolata;
+background-image: linear-gradient(#009999 50%, #000999);
 }
 .main strong {
 color: #FFFFFF;
@@ -239,7 +239,7 @@ position: absolute;
 }
 .main p {
 padding-top: 20%;
-font-size: 170px;
+font-size: 105pt;
 text-align: left;
 }
 .fab {
@@ -311,7 +311,7 @@ span > #tab:mytable {
 <div class="column outer">
 <br>
 <div class="title section">
-<h1 id="title">Text</h1>
+<h1 id="title"><tt>nash:</tt> using Game Theory towards sustainable resource exploitation.</h1>
 <br>
 <h3 id="author" class="author">
 
@@ -324,9 +324,9 @@ T.J. Del Santo O’Neill<sup> 1</br></sup><br>
 
 <h5 id="author_extra" class="author_extra">
  </br><font size="+4">Supervisors:</font><sup></sup>
- </br></br><font size="+4">A.G. Rossberg,</font><sup>1</sup>
- <font size="+4">L. Chittka and</font><sup>1</sup>
- <font size="+4">R.P. Thorpe.</font><sup>2</sup>
+ </br></br><font size="+4">A.G. Rossberg</font><sup>1</sup>
+ <font size="+4">, L. Chittka</font><sup>1</sup>
+ <font size="+4"> and R.P. Thorpe.</font><sup>2</sup>
 </h5>
 
 <p id="affiliation" class="affiliation">
@@ -335,224 +335,89 @@ T.J. Del Santo O’Neill<sup> 1</br></sup><br>
 
 </div>
 <style>
-#main-img-left {
+#Logos {
+  top: 2850px;
+  left: 1367.5px;
   position: fixed;
-  bottom: 10;
-  right: 10;
-  width: 50;
+}
+#nashlogo {
+  top: 5px;
+  left: 1500px;
+  position: fixed;
+}
+#Methods {
+  width: 900px;
+  height: 400px;
+}
+p.caption {
+  margin-top: -20pt;
+  margin-bottom: 0;
+}
+p {
+    margin-top:-20px;
 }
 </style>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the <code>posterdown_betterland</code> template for the {posterdown} package! I was inspired by the twitter thread of <a href="https://mobile.twitter.com/mikemorrison/status/1110191245035479041">Mike Morrison</a> and wanted to apply the <code>#betterposter</code> concept to the reproducible (yet simple to use) functionality of the {posterdown} package -posterdown]. If you’re not an R user don’t sweat as you do <strong>NOT</strong> need to use it at all! Feel free to use only the Markdown functionality of this package :)</p>
-<div id="objectives" class="section level2">
-<h2>Objectives</h2>
-<ol style="list-style-type: decimal">
-<li>Pick a template layout.</li>
-<li>Write/ create your poster content distraction free.</li>
-<li>Let posterdown do its thing!</li>
-</ol>
+<div id="motivation" class="section level1">
+<h1>Motivation</h1>
+<p>Our research aims to contribute towards the realisation of the 14th Sustainable Development Goal subscribed by the United Nations in the <a href="https://sdgs.un.org/2030agenda">2030 Agenda for Sustainable Development</a>; particularly, on how to sustainably extract marine living resources through fishing <span class="citation">(<a href="#ref-Duarte2020" role="doc-biblioref"><em>1</em></a>)</span>.</p>
+<p>Current management advice is provided on a <em>species-by-species</em> (SS) basis relative to the “Maximum Sustainable Yield” (MSY) target <span class="citation">(<a href="#ref-CFP2013" role="doc-biblioref"><em>2</em></a>, <a href="#ref-Act2020" role="doc-biblioref"><em>3</em></a>)</span>. Nonetheless, in marine systems species rarely (if at all) occur in isolation <span class="citation">(<a href="#ref-Menegotto2018" role="doc-biblioref"><em>4</em></a>)</span>, sharing the factors that regulate their growth and (more often than not) feeding upon one another. Within this more realistic <em>multispecies</em> (MS) setting, applying SS-MSY based policies carries great risk of stock collapse <span class="citation">(<a href="#ref-May1979" role="doc-biblioref"><em>5</em></a>)</span>.</p>
+<p>In our research, we use abstract ecosystem models where trophic interactions are accounted for to obtain optimal harvesting rates for all exploited stocks in such a way that changes in any single rate cannot increase the long-term yield for that stock <span class="citation">(<a href="#ref-Farcas2016" role="doc-biblioref"><em>6</em></a>)</span>. This solution is by definition a <em>Nash Equilibrium</em> (NE) <span class="citation">(<a href="#ref-Nash1951" role="doc-biblioref"><em>7</em></a>)</span> in non-cooperative game theory where rational players maximise their benefits.</p>
 </div>
+<div id="under-the-hood" class="section level1">
+<h1>Under the hood</h1>
+<p>Here we present <code>nash</code>, an <code>R</code> package <span class="citation">(<a href="#ref-R2020" role="doc-biblioref"><em>8</em></a>)</span> that computes NE harvesting rates (<span class="math inline">\(\mathbf{F}\)</span>) for ecological models of the form:
+<span class="math display" id="eq:1">\[\begin{equation}
+  \frac{d\mathbf{B}}{dt}=\mathbf{f}(\mathbf{B})\circ \mathbf{B}-\mathbf{F}\circ\mathbf{B}.
+  \tag{1}
+\end{equation}\]</span>
+The user defines an <code>R</code> function that contains equation <a href="#eq:1">(1)</a> alongside an integration routine to solve it, taking <span class="math inline">\(\mathbf{F}\)</span> as input and returning long-term yields as output.</p>
+<p>The <code>nash</code> function will then approximate equation <a href="#eq:1">(1)</a> near equilibrium dynamics by a multispecies Lotka-Volterra (LV) model, for which the NE can be computed analytically and so a first estimation of optimal <span class="math inline">\(\mathbf{F}\)</span> obtained. Subsequently, an updated LV approximation is calculated near the equilibrium given by this new <span class="math inline">\(\mathbf{F}\)</span>. <code>nash</code> will then re-compute the NE starting a new iteration until a (user-adjustable) convergence threshold for <span class="math inline">\(\mathbf{F}\)</span> is reached.</p>
 </div>
-<div id="methods" class="section level1">
-<h1>Methods</h1>
-<p>I will show here how to include poster elements that may be useful, such as an equation using mathjax:</p>
-<p><span class="math display">\[
-E = mc^2
-\]</span></p>
-<p>To reference a citation you can add your <code>.bib</code> file to the working directory and name it in the YAML metadata or generate an automated one as done here, then you only need to reference the label value in the <code>.bib</code> file. For example this package is built on top of the wonderful {pagedown} package and I will cite it at the end of this sentance using this in the rmd <code>-pagedown]</code> [-pagedown].</p>
-<p>To get a better understanding of how to include features like these please refer to the {posterdown} <a href="https://github.com/posterdown/wiki">wiki</a>.</p>
-<p><strong><em>Now on to the results!</em></strong></p>
-<p><br></p>
+<div id="usage-sample" class="section level1">
+<h1>Usage Sample</h1>
+<p><code>nash</code> implementation was successfully tested for several complex ecosystem models. Here we showcase its application to the North Sea food web where optimal Nash Equilibrium harvesting rates are found:</p>
+<p><img src="Results.svg" width="80%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="results" class="section level1">
-<h1>Results</h1>
-<p>Here you may have some figures to show off, bellow I have made a scatterplot with the infamous Iris dataset and I can even reference to the figure automatically like this, <code>Figure \f(fig:irisfigure)</code>, Figure ref(fig:irisfigure).</p>
-<div class="figure" style="text-align: center"><span id="fig:irisfigure"></span>
-<img src="Poster_files/figure-html/irisfigure-1.png" alt="Here is a caption for the figure. This can be added by using the &quot;fig.cap&quot; option in the r code chunk options, see this [link](https://yihui.name/knitr/options/#plots) from the legend himself, [Yihui Xie](https://twitter.com/xieyihui)." width="80%" />
-<p class="caption">
-Figure 1: Here is a caption for the figure. This can be added by using the “fig.cap” option in the r code chunk options, see this <a href="https://yihui.name/knitr/options/#plots">link</a> from the legend himself, <a href="https://twitter.com/xieyihui">Yihui Xie</a>.
-</p>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>Single species modelling was the most parsimonious approach to theoretically guide management in the 20th century. Nonetheless, the amount of anthropogenic stressors natural resources are subjected too at present requires more accurate model formulations. <code>nash</code> streamlines the computation of a promising multispecies Maximum Sustainable Yield objective for holistic ecosystem models.</p>
 </div>
-<p>Maybe you want to show off some of that fancy code you spent so much time on to make that figure, well you can do that too! Just use the <code>echo=TRUE</code> option in the r code chunk options, Figure ref(fig:myprettycode)!</p>
-<div class="figure" style="text-align: center"><span id="fig:myprettycode"></span>
-<img src="Poster_files/figure-html/myprettycode-1.png" alt="Boxplots, so hot right now!" width="80%" />
-<p class="caption">
-Figure 2: Boxplots, so hot right now!
-</p>
-</div>
-<p>How about a neat table of data? See, Table <a href="#tab:iristable">1</a>:</p>
-<table>
-<caption>
-<span id="tab:iristable">Table 1: </span>A table made with the <strong>knitr::kable</strong> function.
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;">
-Sepal <br> Length
-</th>
-<th style="text-align:center;">
-Sepal <br> Width
-</th>
-<th style="text-align:center;">
-Petal <br> Length
-</th>
-<th style="text-align:center;">
-Petal <br> Width
-</th>
-<th style="text-align:center;">
-Species
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-5.1
-</td>
-<td style="text-align:center;">
-3.5
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.9
-</td>
-<td style="text-align:center;">
-3.0
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.7
-</td>
-<td style="text-align:center;">
-3.2
-</td>
-<td style="text-align:center;">
-1.3
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.6
-</td>
-<td style="text-align:center;">
-3.1
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.0
-</td>
-<td style="text-align:center;">
-3.6
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.4
-</td>
-<td style="text-align:center;">
-3.9
-</td>
-<td style="text-align:center;">
-1.7
-</td>
-<td style="text-align:center;">
-0.4
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-4.6
-</td>
-<td style="text-align:center;">
-3.4
-</td>
-<td style="text-align:center;">
-1.4
-</td>
-<td style="text-align:center;">
-0.3
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-5.0
-</td>
-<td style="text-align:center;">
-3.4
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-setosa
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="references" class="section level1">
+<div id="references" class="section level1 unnumbered">
 <h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-Duarte2020">
+<p>1. C. M. Duarte, S. Agusti, E. Barbier, G. L. Britten, J. C. Castilla, J.-P. Gattuso, R. W. Fulweiler, T. P. Hughes, N. Knowlton, C. E. Lovelock, H. K. Lotze, M. Predragovic, E. Poloczanska, C. Roberts, B. Worm, Rebuilding marine life. <em>Nature</em>. <strong>580</strong>, 39–51 (2020).</p>
+</div>
+<div id="ref-CFP2013">
+<p>2. EU, Regulation (EU) No 1380/2013 of the European Parliament and of the Council on the Common Fisheries Policy. <em>Official Journal of the European Union</em>. <strong>L 354</strong>, 22–61 (2013).</p>
+</div>
+<div id="ref-Act2020">
+<p>3. Fisheries Act 2020, c. 22, Available at: <a href="https://www.legislation.gov.uk/ukpga/2020/22/contents">https://www.legislation.gov.uk/ukpga/2020/22/contents</a>.</p>
+</div>
+<div id="ref-Menegotto2018">
+<p>4. A. Menegotto, T. F. Rangel, Mapping knowledge gaps in marine diversity reveals a latitudinal gradient of missing species richness. <em>Nature Communications</em>. <strong>9</strong>, 4713 (2018).</p>
+</div>
+<div id="ref-May1979">
+<p>5. R. M. May, J. R. Beddington, C. W. Clark, S. J. Holt, R. M. Laws, Management of multispecies fisheries. <em>Science</em>, 267–277 (1979).</p>
+</div>
+<div id="ref-Farcas2016">
+<p>6. A. Farcas, A. G. Rossberg, Maximum sustainable yield from interacting fish stocks in an uncertain world: Two policy choices and underlying trade-offs. <em>ICES J Mar Sci</em>. <strong>73</strong>, 2499–2508 (2016).</p>
+</div>
+<div id="ref-Nash1951">
+<p>7. J. Nash, Non-Cooperative Games. <em>Annals of Mathematics</em>. <strong>54</strong>, 286–295 (1951).</p>
+</div>
+<div id="ref-R2020">
+<p>8. R Core Team, <em>R: A language and environment for statistical computing</em> (R Foundation for Statistical Computing, Vienna, Austria, 2020; <a href="https://www.R-project.org/">https://www.R-project.org/</a>).</p>
+</div>
+</div>
 </div>
 
 </div>
 <div class="main">
-<p>Make <strong>better posters</strong> with RMarkdown + <strong>posterdown</strong>.</p>
-<img src="https://raw.githubusercontent.com/ThomasDelSantoONeill/SBCSposter/blob/main/Poster_files/QMlogo.svg" class="main-img-left" />
+<p><p style="text-align:center">
+The natural <strong>solution</strong> for optimal <strong>harvesting</strong> of <strong>interacting</strong> fish stocks is the <strong>Nash equilibrium</strong>. Our R package <strong>nash</strong> facilitates its computation for any arbitrary <strong>user</strong>-defined <strong>ecosystem model</strong>.
+</p></p>
+<p><img src="Poster_files/QMlogo.svg" id="Logos"></p>
 
 </div>
 </div>
